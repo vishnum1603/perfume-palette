@@ -1,0 +1,14 @@
+.dash-nav{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .dashboard-content {
+    flex-grow: 1;
+  }
+
+  
+  
+ 
