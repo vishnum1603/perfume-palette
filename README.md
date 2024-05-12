@@ -50,10 +50,9 @@ An online platform for users to create custom fragrances.
    git clone https://github.com/vishnum1603/perfume-palette
    cd App-Development
    Backend Setup:
-
- - Navigate to the backend directory.
- - Configure the database settings.
- - Run the Spring Boot application:
+   - Navigate to the backend directory.
+   - Configure the database settings.
+   - Run the Spring Boot application:
 
 3. **Usage**
   - Sign up or log in to create custom fragrances.
