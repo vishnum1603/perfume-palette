@@ -2,19 +2,26 @@
 
 An online platform for users to create custom fragrances.
 
-## Problem
+## Features
 
-Developed an online platform for users to create custom fragrances.
+- **Fragrance Management:**
+  - Add, update, and delete fragrances information.
+  - View a list of all fragrances.
 
-## Target Audience
+## Technologies Used
 
-Perfume enthusiasts
+- **Frontend:**
+  - React JS
+  - Material UI and Ant Design UI for user interface design
 
-## Functionalities
+- **State Management:**
+  - Redux
 
-- Implemented a user-friendly interface using React JS with Material UI.
-- Integrated Spring Security for secure user accounts.
-- Utilized MySQL for data storage
+- **Backend:**
+  - Spring Security for secure user access
+
+- **Database:**
+  - MySQL for storing party details, client information, and guest registrations
 
 ## Prerequisites
 
