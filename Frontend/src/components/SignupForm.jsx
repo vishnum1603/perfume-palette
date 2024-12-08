@@ -11,9 +11,9 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
-import { signup } from "./services/Api";
 
 const defaultTheme = createTheme();
+
 export default function SignUpForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -36,12 +36,13 @@ export default function SignUpForm() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     let isValid = true;
     const newErrors = { ...formErrors };
 
+    // Validate form fields
     for (const key in formData) {
       if (formData[key].trim() === "") {
         newErrors[key] = `${
@@ -56,25 +57,28 @@ export default function SignUpForm() {
     setFormErrors(newErrors);
 
     if (isValid) {
-      try {
-        await signup(formData);
-        console.log("Form data submitted:", formData);
-        toast.success("Welcome! You have successfully signed up.", {
-          position: "top-center",
-          autoClose: 2000,
-          onClose: () => {
-            setTimeout(() => {
-              navigate("/home");
-            }, 3000);
-          },
-        });
-      } catch (error) {
-        console.error("Error in handleSubmit:", error);
-        toast.error("username already in use", {
-          position: "top-center",
-          autoClose: 2000,
-        });
-      }
+      // Simulate signup success
+      console.log("Form data submitted:", formData);
+      toast.success("Welcome! You have successfully signed up.", {
+        position: "top-center",
+        autoClose: 2000,
+        onClose: () => {
+          setTimeout(() => {
+            navigate("/home");
+          }, 3000);
+        },
+      });
+
+      // Reset form data
+      setFormData({
+        firstname: "",
+        lastname: "",
+        email: "",
+        username: "",
+        password: "",
+      });
+    } else {
+      console.log("Form validation errors:", newErrors);
     }
   };
 
