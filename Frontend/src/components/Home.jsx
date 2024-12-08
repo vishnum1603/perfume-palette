@@ -20,14 +20,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import { CarousalActive } from './CarousalActive';
-import image1 from '../custom1.jpg';
-import image2 from '../custom2.jpg';
-import image3 from '../custom3.jpg';
-import image4 from '../custom4.jpg';
-import image5 from '../custom5.jpg';
-import image6 from '../custom6.jpg';
-import image7 from '../custom7.jpg';
-import image8 from '../custom8.jpg';
+import image1 from '../images/custom1.jpg';
+import image2 from '../images/custom2.jpg';
+import image3 from '../images/custom3.jpg';
+import image4 from '../images/custom4.jpg';
+import image5 from '../images/custom5.jpg';
+import image6 from '../images/custom6.jpg';
+import image7 from '../images/custom7.jpg';
+import image8 from '../images/custom8.jpg';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
