@@ -10,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.min.css";
-import { Login } from "./services/Api";
-
 
 export default function SignInSide() {
   const navigate = useNavigate();
@@ -31,7 +29,7 @@ export default function SignInSide() {
     setFormErrors({ ...formErrors, [name]: "" });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let isValid = true;
     const newErrors = { ...formErrors };
@@ -44,42 +42,47 @@ export default function SignInSide() {
     setFormErrors(newErrors);
 
     if (isValid) {
-      try {
-        console.log("Form is valid, submitting data:", formData);
-        setFormData({
-          username: "",
-          password: "",
-        });
+      console.log("Form is valid, submitting data:", formData);
+      setFormData({
+        username: "",
+        password: "",
+      });
 
-        const userData = await Login(formData);
+      // Mock authentication logic
+      const mockUser = {
+        username: "admin",
+        password: "admin123",
+        role: "ADMIN",
+      };
 
-        if (userData && userData.token) {
-          console.log(userData.role) ;
-          console.log(userData.token) ;
-          if (userData.role === "ADMIN") {
-            toast.success("You have successfully signed in.", {
-              position: "top-center",
-              autoClose: 2000,
-              onClose: () => {
-                setTimeout(() => {
-                  navigate("/dashboard");
-                }, 1000);
-              },
-            });
-          } else {
-            toast.success("You have successfully signed in.", {
-              position: "top-center",
-              autoClose: 2000,
-              onClose: () => {
-                setTimeout(() => {
-                  navigate("/home");
-                }, 1000);
-              },
-            });
-          }
+      if (
+        formData.username === mockUser.username &&
+        formData.password === mockUser.password
+      ) {
+        const role = mockUser.role;
+
+        if (role === "ADMIN") {
+          toast.success("You have successfully signed in.", {
+            position: "top-center",
+            autoClose: 2000,
+            onClose: () => {
+              setTimeout(() => {
+                navigate("/dashboard");
+              }, 1000);
+            },
+          });
+        } else {
+          toast.success("You have successfully signed in.", {
+            position: "top-center",
+            autoClose: 2000,
+            onClose: () => {
+              setTimeout(() => {
+                navigate("/home");
+              }, 1000);
+            },
+          });
         }
-      } catch (error) {
-        console.error("Error occurred while logging in:", error);
+      } else {
         toast.error("Invalid Email or Password!!!", {
           position: "top-center",
           autoClose: 2000,
